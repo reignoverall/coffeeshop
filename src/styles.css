@@ -1,3 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+
+@theme {
+  --color-cream: #faf5ee;
+  --color-latte: #efe4d4;
+  --color-foam: #fffdf9;
+  --color-espresso: #2f2119;
+  --color-roast: #5c4636;
+  --color-crema: #8a4a17;
+  --color-crema-dark: #6e3a10;
+
+  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream font-sans text-espresso antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-crema);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Anchored menu sections should clear the sticky header + chip bar. */
+  [id] {
+    scroll-margin-top: 9rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility btn {
+  @apply inline-flex min-h-11 items-center justify-center rounded-full px-6 font-medium transition-colors;
+}
+
+@utility btn-primary {
+  @apply btn bg-crema text-foam hover:bg-crema-dark;
+}
+
+@utility btn-ghost {
+  @apply btn border border-current;
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-5xl px-4 sm:px-6;
+}

@@ -1,12 +1,24 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Header } from './layout/header';
+import { Footer } from './layout/footer';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
-  templateUrl: './app.html',
+  imports: [RouterOutlet, Header, Footer],
+  host: { class: 'flex min-h-dvh flex-col' },
+  template: `
+    <a
+      href="#main"
+      class="sr-only z-50 rounded-full bg-espresso px-4 py-2 text-foam focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+    >
+      Skip to content
+    </a>
+    <app-header />
+    <main id="main" tabindex="-1" class="flex-1 focus:outline-none">
+      <router-outlet />
+    </main>
+    <app-footer />
+  `,
 })
-export class App {
-  protected readonly title = signal('coffeeshop');
-}
+export class App {}
