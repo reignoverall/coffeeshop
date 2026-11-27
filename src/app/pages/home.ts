@@ -26,12 +26,11 @@ function hoursFor(day: number) {
           <p class="mt-5 max-w-md text-lg leading-relaxed text-sack">{{ shop.intro }}</p>
 
           <p class="mt-8 flex items-center gap-3 text-paper">
-            <span class="ember-dot" aria-hidden="true"></span>
-            <span>
+           
+            <span class="inline-flex items-center gap-2 rounded-full bg-paper/10 px-3 py-1 text-sm font-medium">
               Open today <strong class="font-semibold">{{ today.time }}</strong>
             </span>
           </p>
-          <p class="mt-1 pl-[1.375rem] text-sack">{{ shop.address.street }}</p>
 
           <div class="mt-8 flex flex-wrap gap-3">
             <a routerLink="/menu" class="btn-primary">See the menu</a>
