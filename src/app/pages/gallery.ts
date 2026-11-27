@@ -7,7 +7,7 @@ import { GALLERY } from '../data/shop';
   imports: [NgOptimizedImage],
   template: `
     <header class="container-page pt-12 pb-6 md:pt-16">
-      <h1 class="text-4xl font-semibold md:text-5xl">Gallery</h1>
+      <h1 class="text-5xl md:text-6xl">Gallery</h1>
       <p class="mt-3 max-w-xl text-lg text-roast">
         A look inside the bar, the beans and the people who keep it warm.
       </p>
@@ -18,7 +18,7 @@ import { GALLERY } from '../data/shop';
         <li [class]="i % 5 === 0 ? 'col-span-2 lg:col-span-1' : ''">
           <button
             type="button"
-            class="group relative block w-full overflow-hidden rounded-xl"
+            class="group relative block w-full overflow-hidden rounded-md"
             [class]="i % 5 === 0 ? 'aspect-[2/1] lg:aspect-square' : 'aspect-square'"
             (click)="openAt(i)"
           >
@@ -27,7 +27,7 @@ import { GALLERY } from '../data/shop';
               [ngSrc]="photo.src"
               [alt]="photo.alt"
               fill
-              [priority]="i < 3"
+              [priority]="i < 6"
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               class="object-cover transition-transform duration-300 group-hover:scale-105"
             />
@@ -40,7 +40,7 @@ import { GALLERY } from '../data/shop';
     <dialog
       #lightbox
       aria-label="Photo viewer"
-      class="m-0 h-dvh max-h-none w-screen max-w-none bg-espresso p-0 text-latte"
+      class="m-0 h-dvh max-h-none w-screen max-w-none bg-char p-0 text-sack"
       (close)="current.set(null)"
       (click)="onBackdropClick($event)"
       (keydown.arrowright)="step(1)"
@@ -55,7 +55,7 @@ import { GALLERY } from '../data/shop';
               [width]="img.width"
               [height]="img.height"
               sizes="100vw"
-              class="max-h-[70svh] w-auto max-w-full rounded-lg object-contain"
+              class="max-h-[70svh] w-auto max-w-full rounded-md object-contain"
             />
           }
           <figcaption class="max-w-xl text-center" aria-live="polite">
@@ -64,7 +64,7 @@ import { GALLERY } from '../data/shop';
           <div class="flex items-center gap-3">
             <button
               type="button"
-              class="btn-ghost w-12 px-0 text-foam hover:bg-foam/10"
+              class="btn-ghost w-12 px-0 text-paper hover:bg-paper/10"
               (click)="step(-1)"
             >
               <span aria-hidden="true">&larr;</span><span class="sr-only">Previous photo</span>
@@ -72,7 +72,7 @@ import { GALLERY } from '../data/shop';
             <button type="button" class="btn-primary" (click)="close()">Close</button>
             <button
               type="button"
-              class="btn-ghost w-12 px-0 text-foam hover:bg-foam/10"
+              class="btn-ghost w-12 px-0 text-paper hover:bg-paper/10"
               (click)="step(1)"
             >
               <span aria-hidden="true">&rarr;</span><span class="sr-only">Next photo</span>

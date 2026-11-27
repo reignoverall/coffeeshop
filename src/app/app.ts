@@ -10,7 +10,7 @@ import { Footer } from './layout/footer';
   template: `
     <a
       href="#main"
-      class="sr-only z-50 rounded-full bg-espresso px-4 py-2 text-foam focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+      class="sr-only z-50 rounded-full bg-char px-4 py-2 text-paper focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
     >
       Skip to content
     </a>

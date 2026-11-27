@@ -11,9 +11,9 @@ import { NAV_LINKS } from './nav-links';
     '(document:keydown.escape)': 'open.set(false)',
   },
   template: `
-    <header class="border-b border-latte bg-cream/95 backdrop-blur">
+    <header class="border-b border-sack bg-kraft/95 backdrop-blur">
       <div class="container-page flex h-16 items-center justify-between">
-        <a routerLink="/" class="font-serif text-xl font-semibold" (click)="open.set(false)">
+        <a routerLink="/" class="font-serif text-2xl tracking-tight" (click)="open.set(false)">
           {{ shop.name }}
         </a>
 
@@ -50,10 +50,10 @@ import { NAV_LINKS } from './nav-links';
               <li>
                 <a
                   [routerLink]="link.path"
-                  routerLinkActive="bg-latte"
+                  routerLinkActive="bg-sack"
                   ariaCurrentWhenActive="page"
                   [routerLinkActiveOptions]="{ exact: link.exact }"
-                  class="inline-flex min-h-11 items-center rounded-full px-4 font-medium hover:bg-latte"
+                  class="inline-flex min-h-11 items-center rounded-full px-4 font-medium hover:bg-sack"
                 >
                   {{ link.label }}
                 </a>
@@ -65,16 +65,16 @@ import { NAV_LINKS } from './nav-links';
 
       <!-- Mobile nav panel -->
       @if (open()) {
-        <nav id="site-nav" aria-label="Main" class="border-t border-latte md:hidden">
+        <nav id="site-nav" aria-label="Main" class="border-t border-sack md:hidden">
           <ul class="container-page flex flex-col py-2">
             @for (link of links; track link.path) {
               <li>
                 <a
                   [routerLink]="link.path"
-                  routerLinkActive="text-crema"
+                  routerLinkActive="text-ember-dark"
                   ariaCurrentWhenActive="page"
                   [routerLinkActiveOptions]="{ exact: link.exact }"
-                  class="flex min-h-12 items-center font-serif text-2xl"
+                  class="flex min-h-12 items-center font-serif text-3xl"
                   (click)="open.set(false)"
                 >
                   {{ link.label }}

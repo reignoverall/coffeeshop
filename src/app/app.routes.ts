@@ -8,12 +8,12 @@ export const routes: Routes = [
   },
   {
     path: 'gallery',
-    title: 'Gallery · Ember & Oak Coffee',
+    title: 'Gallery | Ember & Oak Coffee',
     loadComponent: () => import('./pages/gallery').then((m) => m.Gallery),
   },
   {
     path: 'menu',
-    title: 'Menu · Ember & Oak Coffee',
+    title: 'Menu | Ember & Oak Coffee',
     loadComponent: () => import('./pages/menu').then((m) => m.Menu),
   },
   { path: '**', redirectTo: '' },

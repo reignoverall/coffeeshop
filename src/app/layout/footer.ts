@@ -8,15 +8,15 @@ import { NAV_LINKS } from './nav-links';
   imports: [RouterLink],
   host: { class: 'block' },
   template: `
-    <footer class="bg-espresso text-latte">
+    <footer class="bg-oak text-sack">
       <div class="container-page grid gap-8 py-10 sm:grid-cols-3">
         <div>
-          <p class="font-serif text-xl text-foam">{{ shop.name }}</p>
+          <p class="font-serif text-2xl tracking-tight text-paper">{{ shop.name }}</p>
           <p class="mt-2">{{ shop.tagline }}</p>
         </div>
 
         <div>
-          <h2 class="font-sans text-sm font-semibold tracking-widest text-foam uppercase">Visit</h2>
+          <h2 class="text-lg text-paper">Visit</h2>
           <address class="mt-2 not-italic">
             {{ shop.address.street }}<br />
             {{ shop.address.city }}<br />
@@ -27,7 +27,7 @@ import { NAV_LINKS } from './nav-links';
         </div>
 
         <div>
-          <h2 class="font-sans text-sm font-semibold tracking-widest text-foam uppercase">Hours</h2>
+          <h2 class="text-lg text-paper">Hours</h2>
           <dl class="mt-2 space-y-1">
             @for (h of shop.hours; track h.days) {
               <div class="flex justify-between gap-4 sm:block">
@@ -39,7 +39,7 @@ import { NAV_LINKS } from './nav-links';
         </div>
       </div>
 
-      <div class="border-t border-roast">
+      <div class="border-t border-paper/15">
         <div
           class="container-page flex flex-col gap-3 py-4 text-sm sm:flex-row sm:items-center sm:justify-between"
         >

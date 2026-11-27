@@ -1,16 +1,22 @@
 @import 'tailwindcss';
 
+/*
+ * Ember & Oak — kraft-bag paper, char ink, oak green, one ember accent.
+ * Young Serif (display, weight 400 only — never bold it) + Instrument Sans (text).
+ */
 @theme {
-  --color-cream: #faf5ee;
-  --color-latte: #efe4d4;
-  --color-foam: #fffdf9;
-  --color-espresso: #2f2119;
-  --color-roast: #5c4636;
-  --color-crema: #8a4a17;
-  --color-crema-dark: #6e3a10;
+  --color-kraft: #ead9bc; /* page base: coffee-bag paper */
+  --color-sack: #d7bf98; /* rules, hover fills, light text on oak */
+  --color-paper: #f7efe1; /* text on dark, lightest surface */
+  --color-char: #241c17; /* ink */
+  --color-roast: #5a4636; /* secondary text */
+  --color-oak: #2f3a2b; /* dark bands */
+  --color-ember: #b4380f; /* actions */
+  --color-ember-dark: #8f2c0b; /* links on kraft, button hover */
+  --color-ember-glow: #f2713a; /* decorative only */
 
-  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Young Serif', ui-serif, Georgia, serif;
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -20,25 +26,24 @@
   }
 
   body {
-    @apply bg-cream font-sans text-espresso antialiased;
+    @apply bg-kraft font-sans text-char antialiased;
     -webkit-tap-highlight-color: transparent;
   }
 
   h1,
-  h2,
-  h3 {
-    @apply font-serif text-balance;
+  h2 {
+    @apply font-serif font-normal tracking-tight text-balance;
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-crema);
+    outline: 3px solid var(--color-ember);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
-  /* Anchored menu sections should clear the sticky header + chip bar. */
-  [id] {
-    scroll-margin-top: 9rem;
+  .bg-oak :focus-visible,
+  dialog :focus-visible {
+    outline-color: var(--color-ember-glow);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -49,7 +54,7 @@
     *,
     *::before,
     *::after {
-      animation-duration: 0.01ms !important;
+      animation: none !important;
       transition-duration: 0.01ms !important;
     }
   }
@@ -60,7 +65,7 @@
 }
 
 @utility btn-primary {
-  @apply btn bg-crema text-foam hover:bg-crema-dark;
+  @apply btn bg-ember text-paper hover:bg-ember-dark;
 }
 
 @utility btn-ghost {
@@ -69,4 +74,32 @@
 
 @utility container-page {
   @apply mx-auto w-full max-w-5xl px-4 sm:px-6;
+}
+
+/* The one ambient motion on the site: a slow ember glow next to today's hours. */
+@utility ember-dot {
+  @apply inline-block size-2.5 shrink-0 rounded-full bg-ember-glow;
+  animation: ember-glow 3.2s ease-in-out infinite;
+}
+
+@keyframes ember-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(242 113 58 / 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgb(242 113 58 / 0);
+  }
+}
+
+/* Menu category switch: a short fade so the change of list is noticed, not jarring. */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
